@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'ap/royhat_.css'%}">
+</head>
+<body>
+  <form action="" method="POST">{% csrf_token %}
+
+  <div class="signup_div">
+    <div class="div_card">
+        <div class="div2">
+      <div class="signup_label">Ism:</div>
+      <div class="signup_input"><input type="text" name="ism"></div>
+    </div>
+    <div class="div2">
+      <div class="signup_label">Parol:</div>
+      <div class="signup_input"><input type="password" name="parol"></div>
+    </div>
+    <input class='sign' type="submit" value="yuklash">
+
+</div>
+</div>
+
+</form>  
+</body>
+</html>

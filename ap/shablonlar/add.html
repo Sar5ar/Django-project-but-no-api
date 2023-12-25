@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="royhat_.css">
+</head>
+<body>
+    <form action="" enctype="multipart/form-data" method="POST">{% csrf_token %}
+        <div class="signup_div">
+            <div class="div_card">
+                <div class="div2">
+              <div class="signup_label">Ism:</div>
+              <div class="signup_input"><input type="text" name="nomi"></div>
+            </div>
+            <div class="div2">
+              <div class="signup_label">rasmi:</div>
+              <div class="signup_input"><input type="file" name="rasmi"></div>
+            </div>
+            <div class="div2">
+                <div class="signup_label">narxi:</div>
+                <div class="signup_input"><input type="text" name="narxi"></div>
+              </div>
+              
+            <input class='sign' type="submit" value="yuklash">
+        
+        </div>
+        </div>
+    </form>
+</body>
+</html>

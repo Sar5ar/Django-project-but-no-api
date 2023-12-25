@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="tavarlar">
+        <div class="tavar_contener">
+        {% for i in t_i %}
+           <div class="tavar_card"> 
+              <h1 class="tavar_title">{{i.nomi}}</h1>
+              <p class="tavar_text">Narxi:{{i.narxi}}$</p>
+              <div class="tavar_item">
+                 <div class="tavar_img">
+                    <img src="{{i.rasmi.url}}" alt="">
+                 </div>
+    
+              </div>
+    
+              <a style="color: black;" href="{% url 'save_add' i.id %}">add</a>   
+              {% if request.user.username == i.kim %}
+                 <a style="color: black;" href="{% url 'p_d' i.id %}">delet</a>   
+              {% endif %}
+           </div>
+           {%endfor%}
+</body>
+</html>

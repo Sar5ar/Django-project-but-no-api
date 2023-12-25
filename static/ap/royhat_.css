@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.signup_div{
+    background-color: rgba(23, 15, 15, 0.196);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.div_card{
+    display: flex;
+    padding: 1.6rem;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color:rgba(23, 15, 15, 0.196);
+    
+}
+.div2{
+    display: flex;
+    justify-content: space-between;
+    margin: 0.8rem 0.8rem;
+}
+.signup_label{
+    display: inline-block;
+}
+.div_card{
+    position: relative;
+}
+.sign{
+    align-self: flex-end;
+    display: inline-block;
+    height: 1.5rem;
+    width: 5rem;
+    margin-right: 0.8rem;
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+}

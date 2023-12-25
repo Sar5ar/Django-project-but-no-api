@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'ap/ekt.css'%}">
+</head>
+<body>
+    <div class="header_header"></div>
+    <div class="minu" >
+        <div class="minu_icon">Bazar</div>
+        <ul>
+            <li id="pll"><a  href="{% url 'tavarlar'%}">Tillar</a></li>
+            <li><a id="pll" href="{% url 'tavarlar'%}">Haqimizda</a></li>
+           <li><a id="pll" href="{% url 'tavarlar'%}">Tavarlar</a></li>
+            {% if request.user.is_authenticated %}
+            <div class="colii" ><li><a id="pll" href="{% url 'chiqsh'%}">LogOut</a></li></div>
+            {% else %}
+            <div class="ps"><li><a id="pll"  href="{% url 'kirish'%}">Kirish</a></li></div>
+            <a href="{% url 'register'%}"><button class="btn" >Signup</button></a>
+            {% endif%}
+        </ul>
+    </div>
+<div class="header">
+   
+    <!-- minu -->
+    <div class="back_img">
+        
+        <main>
+            <div class="main">
+               <h1 class="h1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab impedit accusamus </h1>
+              {% if user.is_authenticated %}
+               <div class="main_input">
+                <input type="text" placeholder="izlash">
+                <button class="main_iz">o Izlash</button>
+               </div> 
+              
+               {% endif%}
+
+            </div>
+        </main>
+    </div>
+    <div class="rasm">
+        <div class="rasm_continer">
+            <img src="{% static 'ap/7gd0k0st.png'%}" alt="">
+            <img src="{% static 'ap/online.jpg'%}" alt="">
+        </div>
+    </div>
+</div>
+    {% block content %}
+      
+    {% endblock content %}
+    {% for o in saq %}
+    <div class="save_item">
+        {% if o.s_rasmi %}
+        <div class="save_img"><img src="{{o.s_rasmi.url}}" alt=""></div>
+        {% else %}
+        <div class="save_img"><img src="{%static 'ap/online.jpg'%}" alt=""></div>
+        {% endif %}
+        <div class="save_text">{{o.nomi}}</div>
+        <div class="save_x">x</div>
+    </div>
+    {% endfor%}
+    <script src="{% static 'ap/elektronnnnn.js'%}"></script>
+
+</body>
+</html>

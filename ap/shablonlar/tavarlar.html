@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'ap/tavrlar_form.css'%}">
+    <link rel="stylesheet" href="{% static 'ap/ekt.css'%}">
+    <script src="https://unpkg.com/htmx.org@1.9.5" integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO" crossorigin="anonymous"></script>
+    <style>
+        .mp{
+            width: 50%;
+            margin-top: 0.5rem;
+        }
+        .main_input{
+            border: 1px solid black;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="header_header"></div>
+    <div class="minu" >
+      <form method="POST" action="{% url 'tv_i'%}">{% csrf_token %}
+
+        <div class="main_input">
+            <input type="text" placeholder="izlash" name="ni">
+          <button class="main_iz">o Izlash</button>
+           </div>
+    
+      </form>
+ 
+        <ul>
+           <div style="color: white;" id="pll"> <li id="down" ><a>Down</a></li></div>
+            <li ><a id="pll" href="{% url 'add'%}">add</a></li>
+            <li><a id="pll" href="{% url 'tavarlar'%}">Haqimizda</a></li>
+           <li><a id="pll" href="{% url 'elktr'%}">Asosiy</a></li>
+
+        <li>
+            {% if user.rasmingiz %}
+            <img style="height: 30px; width: 30px; object-fit: cover;" src='{{user.rasmingiz.url}}'>
+            {% else %}
+            <img style="height: 30px; width: 30px; object-fit: cover;" src="{% static 'ap/defult.png'%}">           
+            {% endif %}
+            {{user.username}}</li>
+
+    </ul>
+    </div>
+    
+ <div class="save_pag save_none" >
+    <div class="div_x">X</div>
+    {% for o in saq %}
+    <div class="save_item">
+        {% if o.s_rasmi %}
+        <div class="save_img"><img src="{{o.s_rasmi.url}}" alt=""></div>
+        {% else %}
+        <div class="save_img"><img src="{%static 'ap/online.jpg'%}" alt=""></div>
+        {% endif %}
+        <div class="save_text">{{o.s_nomi}}</div>
+        <a href="{% url 'save_x' o.id %} " ><div class="save_x" >x</div></a>
+    </div>
+    {% endfor%}
+    
+    
+ </div>
+ 
+    <!-- tavar -->
+<div class="tavarlar">
+    <div class="tavar_contener">
+    {% for i in tavarlar %}
+       <div class="tavar_card"> 
+          <h1 class="tavar_title">{{i.nomi}}</h1>
+          <p class="tavar_text">Narxi:{{i.narxi}}$</p>
+          <div class="tavar_item">
+             <div class="tavar_img">
+                  <img src="{{i.rasmi.url}}" alt="">
+             </div> 
+
+          </div>
+
+          <a style="color: black;" href="{% url 'save_add' i.id %}">add</a>   
+          {% if request.user.username == i.kim %}
+             <a style="color: black;" href="{% url 'p_d' i.id %}">delet</a>   
+          {% endif %}
+       </div>
+       
+    {% endfor %}
+    <script src="{% static 'ap/elektronnnnn.js'%}"></script>
+    <script src="{% static 'ap/js.js'%}"></script>
+    </div>
+    </div>
+</body>
+</html>

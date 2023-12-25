@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'ap/royhat_.css'%}">
+
+</head>
+<body>
+    <form action="" method="POST">{% csrf_token %}
+    <div class="signup_div">
+        <div class="div_card">
+            {% for i in fro %}
+           
+            <div class="div2">
+          <div class="signup_label">{{i.label}}</div>
+          <div class="signup_input">{{i}}</div>
+        </div>
+        {% endfor %}
+        <input class='sign' type="submit" value="yuklash">
+
+    </div>
+</div>
+
+
+</form>
+</body>
+</html>
